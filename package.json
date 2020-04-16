@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
+    "react-server": "live-server",
     "start": "nodemon server/index.js"
   },
   "author": "Beth Johnson",
