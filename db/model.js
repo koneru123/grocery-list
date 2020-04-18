@@ -7,5 +7,8 @@ module.exports = {
   },
   insertGrocery: (grocery, res) => {
     db.query(`INSERT INTO groceries(item, quantity) VALUES ("${grocery.item}", ${grocery.quantity})`, genericQueryHandler(res));
+  },
+  deleteItemByID: (id, res) => {
+    db.query(`DELETE FROM groceries WHERE id = ${id}`, genericQueryHandler(res));
   }
 }

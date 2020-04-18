@@ -15,6 +15,7 @@ class App extends React.Component {
     this.addGrocery = this.addGrocery.bind(this);
     this.setGroceries = this.setGroceries.bind(this);
     this.getGroceries = this.getGroceries.bind(this);
+    this.deleteGrocery = this.deleteGrocery.bind(this);
   }
 
   setGroceries({data}) {
@@ -49,12 +50,20 @@ class App extends React.Component {
     .catch(this.handleError)
   }
 
+  deleteGrocery(id) {
+    // TODO
+    console.log('priyanka',id);
+    axios.delete(`/groceries/${id}`)
+    .then(this.getGroceries)
+    .catch(this.handleError)
+  }
+
   render() {
     return (
       <div>
         <Header />
         <EntryForm addGrocery={this.addGrocery}/>
-        <GroceryList groceries={this.state.groceries}/>
+        <GroceryList groceries={this.state.groceries} handleDelete={this.deleteGrocery}/>
     </div>
     )
   }

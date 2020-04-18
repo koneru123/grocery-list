@@ -7,7 +7,7 @@ const path = require('path');
 const {logIncomingRequests} = require('./middleware.js');
 
 // import controller
-const {getGroceries, addGrocery} = require('./controller.js');
+const {getGroceries, addGrocery, deleteGrocery} = require('./controller.js');
 
 // invoke express constructor to get an instance of the server
 const app = express();
@@ -33,3 +33,5 @@ app.use(express.static(path.join(__dirname, '../client/dist')))
 app.get('/groceries', getGroceries);
 
 app.post('/groceries', addGrocery);
+
+app.delete('/groceries/:id', deleteGrocery);

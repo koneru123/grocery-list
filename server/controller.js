@@ -7,5 +7,8 @@ module.exports = {
   },
   addGrocery: (req, res) => {
     model.insertGrocery(req.body, res);
+  },
+  deleteGrocery: (req, res) => {
+    model.deleteItemByID(req.params.id, res);
   }
 }
