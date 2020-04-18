@@ -3,7 +3,7 @@ import GroceryListItem from './GroceryListItem.jsx';
 
 const GroceryList = ({groceries}) => (
   <ul className="groceries">
-    {groceries.map((grocery, index) => <GroceryListItem key={index} grocery={grocery}/>)}
+    {groceries.map(grocery => <GroceryListItem key={grocery.id} grocery={grocery}/>)}
   </ul>
 )
 

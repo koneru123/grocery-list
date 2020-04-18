@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class EntryForm extends React.Component {
   constructor(props) {
@@ -17,10 +18,14 @@ class EntryForm extends React.Component {
     this.setState({[name]: value})
   }
 
+  clearFields() {
+    this.setState({items: '', quantity: ''});
+  }
+
   handleSubmit(event) {
-    const {item, quantity} = this.state;
     event.preventDefault();
-    this.props.addGrocery(item, quantity);
+    this.props.addGrocery(this.state);
+    this.clearFields();
   }
 
   render() {
